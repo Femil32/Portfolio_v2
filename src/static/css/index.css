@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(28, 30, 34);
+    /* background: currentColor; */
+    /* box-shadow: 0 0 1px 1px rgb(255, 255, 255), inset 0 0 7px rgba(255, 255, 255, 0.3); */
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgb(49, 53, 61);
+    /* box-shadow: inset 0 0 1px 1px #5c6670; */
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to left, #8391a6, #536175);
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    @apply bg-gold-300 text-white;
+}
+
+a {
+    outline: none;
+}
+
+.app {
+    background: rgb(28, 30, 34);
+    /* background: radial-gradient(circle, rgba(62, 64, 69, 1) 0%, rgba(28, 30, 35, 1) 100%); */
+}
+
+.about-grid {
+    @apply grid gap-[50px];
+    grid-template-columns: 2fr 1fr;
+}
+
+.about-skill-grid {
+    @apply grid gap-y-[10px];
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+}
+
+.golden-line {
+    @apply before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:top-1/2 before:transform before:-translate-y-1/2;
+}
+.myPhoto {
+    transition: all 5s linear ease-in-out;
+}
+.myPhoto::before {
+    @apply content-[''] absolute border-2 border-gold-300 top-[20px] left-[20px] w-full h-full rounded-lg z-[-1] transition-all duration-[0.25s];
+}
+
+.myPhoto::after {
+    @apply content-[''] absolute bg-gold-300 top-0 left-0 w-full h-full rounded-lg z-20 opacity-[0.5] transition-all duration-[0.25s];
+}
+
+.myPhoto:hover::before {
+    @apply top-[15px] left-[15px];
+}
+
+.myPhoto:hover::after {
+    @apply opacity-0;
+}
+
+#navbar {
+    /* @apply bg-blck */
+    background: rgba(28, 30, 34, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: none;
+    outline: none;
+}
+
+.showNav {
+    @apply top-[0];
+    background: rgba(28, 30, 34, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: none;
+    outline: none;
+    box-shadow: 0 5px 20px -15px #000000;
+    height: 60px;
+}
+
+.project-content-odd {
+    position: relative;
+    grid-area: 1 / 1 / -1 / 8;
+    grid-column: 1 / 7;
+    text-align: left;
+}
+
+.project-content-even {
+    position: relative;
+    grid-area: 1 / 5 / -1 / 12;
+    grid-column: 7 / -1;
+    text-align: right;
+}
+.project-img-odd {
+    grid-area: 1 / 1 / -1 / 8;
+    grid-column: 1 / 8;
+    position: relative;
+}
+
+.project-img-even {
+    grid-area: 1 / 5 / -1 / 12;
+    grid-column: 6 / -1;
+    position: relative;
+}
+
+.project-img-even::before,
+.project-img-odd::before {
+    @apply content-[''] absolute bg-black-100 top-0 left-0 w-full h-full z-20 opacity-[0.5] transition-all duration-[0.25s] border-l-8 border-yellow-900;
+}
+.project-img-even::before {
+    @apply border-r-8 border-l-0;
+}
+.project-img-even:hover::before,
+.project-img-odd:hover::before {
+    @apply opacity-0 z-[-1];
+}
+
+.project-dis:hover {
+    box-shadow: 0 5px 20px -15px #000000;
+}
+
+.project-dis:hover:after {
+    animation: shine 1s ease-in-out;
+    animation-fill-mode: forwards;
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -200%;
+    width: 110%;
+    height: 110%;
+    opacity: 0;
+    transform: rotate(145deg);
+
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.13) 0%,
+        rgba(255, 255, 255, 0.13) 77%,
+        rgba(255, 255, 255, 0.5) 92%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+/* Hover state - trigger effect */
+
+/* Active state */
+
+.project-dis:active:after {
+    opacity: 0;
+}
+
+.blogBox:hover {
+    -webkit-box-shadow: 0px 0px 19px -1px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 0px 19px -1px rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 19px -1px rgba(255, 255, 255, 1);
+}
+
+.load-top {
+    animation: Load-Top 3.5s ease-in-out;
+}
+
+/* animation */
+
+@keyframes shine {
+    10% {
+        opacity: 1;
+        top: -100%;
+        left: -100%;
+        transition-property: left, top, opacity;
+        transition-duration: 0.7s, 0.7s, 0.15s;
+        transition-timing-function: ease;
+    }
+    100% {
+        opacity: 0;
+        top: 100%;
+        left: 100%;
+        transition-property: left, top, opacity;
+    }
+}
+
+@keyframes Load-Top {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 110%;
+    }
+}
