@@ -1,7 +1,6 @@
 import React from "react";
 
 function Blog({ BlogData }) {
-    console.log(BlogData);
     return (
         <>
             <div className='flex justify-center items-center flex-col'>

@@ -18,6 +18,10 @@ module.exports = {
             gridColumn: {
                 "span-7/-1": "span 7 / span -1",
             },
+            screens: {
+                mdMax: { max: "767px" },
+                smMax: { max: "639px" },
+            },
         },
     },
     variants: {

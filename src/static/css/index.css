@@ -5,6 +5,7 @@
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
+    z-index: 9999 !important;
 }
 ::-webkit-scrollbar-track {
     background: rgb(28, 30, 34);
@@ -132,7 +133,7 @@ a {
 }
 
 .project-dis:hover:after {
-    animation: shine 1s ease-in-out;
+    animation: shine 1.5s ease-in-out;
     animation-fill-mode: forwards;
     content: "";
     position: absolute;
@@ -168,9 +169,11 @@ a {
 }
 
 .load-top {
-    animation: Load-Top 3.5s ease-in-out;
+    animation: Load-Top 3s ease-in-out;
 }
-
+.letter {
+    @apply relative inline-block opacity-0;
+}
 /* animation */
 
 @keyframes shine {
@@ -196,5 +199,29 @@ a {
     }
     100% {
         width: 110%;
+    }
+}
+
+/* MEDIA QUERY */
+
+@screen smMax {
+    /* .nav_blur {
+        @apply relative;
+    } */
+    .nav_blur::before {
+        position: fixed;
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100vh;
+        backdrop-filter: blur(3px);
+        z-index: -1;
+    }
+    .about-grid {
+        @apply grid gap-[50px];
+        grid-template-columns: 1fr;
     }
 }

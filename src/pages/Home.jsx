@@ -1,40 +1,85 @@
-import React from "react";
+import anime from "animejs";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Social from "../components/Social";
 
 function Home() {
+    useEffect(() => {
+        anime({
+            targets: [
+                ".main_intro div:nth-child(1) .gold-line",
+                ".main_intro div:nth-child(3) .gold-line",
+            ],
+            width: [0, "100%"],
+            easing: "easeInOutQuad",
+            delay: anime.stagger(100, { start: 1500 }),
+            opacity: ["0", "1"],
+        });
+        anime({
+            targets: [
+                ".main_intro div:nth-child(1)",
+                ".main_intro div:nth-child(2)",
+                ".main_intro div:nth-child(3)",
+            ],
+            // translateY: ["-95", "0"],
+            delay: anime.stagger(100, { start: 1000 }),
+            easing: "easeInOutSine",
+            duration: 750,
+            opacity: ["0", "1"],
+        });
+        anime({
+            targets: [".social_icons", ".myMail"],
+            // translateY: ["-95", "0"],
+            delay: anime.stagger(100, { start: 2000 }),
+            easing: "easeInOutSine",
+            duration: 750,
+            opacity: ["0", "1"],
+        });
+        anime({
+            targets: [".mouse-icon"],
+            // translateY: ["-95", "0"],
+            delay: anime.stagger(100, { start: 2500 }),
+            easing: "easeInOutSine",
+            duration: 750,
+            opacity: ["0", "1"],
+        });
+        return () => {};
+    }, []);
+
     return (
         <main
             id='home'
-            className='home relative min-h-screen flex justify-center items-center flex-col pt-[55px] px-[50px] borders-4 border-solid border-black-100'
+            className='home relative min-h-screen flex justify-center items-center flex-col py-[60px] md:pt-[55px] md:px-[50px]'
         >
-            <div className='uppercase'>
-                <div className="text-black-300 text-[50px] relative before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[75%] before:right-0 before:top-1/2 before:transform before:-translate-y-1/2 ">
-                    Hi i'm
+            <div className='main_intro uppercase'>
+                <div className='text-black-300 opacity-0 relative text-[25px] md:text-[50px] flex justify-center items-center'>
+                    <span className='min-w-[100px] flex-1 md:min-w-[165px]'>Hi i'm</span>
+                    <span className='gold-line border-t-8 border-gold-300 border-solid block w-full'></span>
                 </div>
-                <div className='text-black-100 text-[200px] font-bold tracking-widest leading-[180px] ml-[-8px] mr-[-20px]'>
+                <div className='text-black-100 opacity-0 text-[100px] font-bold tracking-widest leading-[100px] ml-[-8px] mr-[-20px] md:text-[200px] md:font-bold md:tracking-widest md:leading-[180px] md:ml-[-8px] md:mr-[-20px]'>
                     Femil
                 </div>
-                <div className="text-gold-300 text-[30px] flex flex-col justify-end items-end mt-6 relative before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[15%] before:right-[35%] before:top-1/2 before:transform before:-translate-y-1/2">
-                    <span className='block leading-[35px]'>A Frontend</span>
-                    <span className='block leading-[35px]'>Developer</span>
+                <div className='text-gold-300 opacity-0 flex flex-row-reverse justify-center items-center relative text-[20px] md:text-[30px] md:mt-6'>
+                    <div className='min-w-[150px] flex-1 text-right md:min-w-[200px]'>
+                        <span className='block leading-[25px] md:leading-[35px]'>A Frontend</span>
+                        <span className='block leading-[25px] md:leading-[35px]'>Developer</span>
+                    </div>
+                    <span className='gold-line border-t-8 border-gold-300 border-solid block w-full'></span>
                 </div>
             </div>
             <Social />
-            <div className='absolute bottom-4 w-full flex justify-center items-center text-3xl text-black-300 px-[50px]'>
+            <div className='mouse-icon absolute bottom-4 w-full flex justify-center items-center text-3xl text-black-300 md:px-[50px] opacity-0'>
                 <lord-icon
                     src='https://cdn.lordicon.com/xwjtkymn.json'
                     trigger='loop'
                     colors='primary:#ffffff,secondary:#08a88a'
-                    // className='w-[350px] h-[350px]'
                     style={{ width: "50px", height: "50px" }}
                 ></lord-icon>
             </div>
             <div
-                className='fixed flex justify-center items-center text-[14px] right-10 bottom-4 text-black-300'
+                className='myMail hidden fixed lg:flex justify-center items-center text-[14px] right-10 bottom-4 text-black-300 opacity-0'
                 style={{ writingMode: "tb-rl" }}
             >
-                {/* <span className='tracking-[3px] font-medium'>femilsavaliya555@gmail.com</span> */}
                 <a href='mailto:femilsavaliya555@gmail.com'>femilsavaliya555@gmail.com</a>
                 <span className='h-16 w-1 bg-black-300 mt-4'></span>
             </div>

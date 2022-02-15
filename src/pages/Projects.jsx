@@ -5,16 +5,18 @@ import Project from "../components/Project";
 // import { ProjectsData } from "../data/ProjectsData";
 
 function Projects({ ProjectsData }) {
-    console.log(ProjectsData);
     return (
         <div
             id='projects'
-            className='text-black-200 flex justify-center items-center min-h-screen pt-32'
+            className='text-black-200 flex justify-center items-center min-h-screen py-[60px]'
         >
             <div className='flex justify-center items-start flex-col max-w-[1000px] w-full'>
-                <div className='relative text-left w-full text-3xl mb-8'>
-                    <h1 className="block w-full before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[56%] before:right-0 before:top-1/2 before:transform before:-translate-y-1/2">
-                        <span className='text-gold-300'>02.</span> Some Things I’ve Built
+                <div className='relative text-left w-full text-2xl mb-10 md:text-3xl md:mb-8'>
+                    <h1 className="flex flex-col md:flex-row before:content-none md:before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[50%] before:right-0 before:top-1/2 before:transform before:-translate-y-1/2 md:before:w-[75%]">
+                        <span className="text-gold-300 relative before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[85%] before:right-0 before:top-1/2 before:transform before:-translate-y-1/2 md:before:w-[75%] md:before:content-none">
+                            02.
+                        </span>
+                        <span> Some Things I’ve Built</span>
                     </h1>
                 </div>
                 <Project ProjectsData={ProjectsData} />

@@ -14,6 +14,7 @@ function App() {
     const [ProjectsData, setProjectsData] = useState(null);
     const [BlogsData, setBlogsData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [mobileMenuToggle, setMobileMenuToggle] = useState(false);
 
     const fetchData = async () => {
         const request = axios.get("https://api.jsonbin.io/v3/b/6203902b69b72261be562d4a/latest", {
@@ -54,21 +55,22 @@ function App() {
     return (
         <BrowserRouter>
             <div className={`${theme ? "light" : "dark"} relative app `}>
-                {/* <Switch>
-                    <Route path='/' component={() => <Home theme={theme} setTheme={setTheme} />} />
-                    <Route path='/#about' component={About} exact />
-                </Switch> */}
                 {loading ? (
                     <Loader />
                 ) : (
-                    <>
-                        <Navbar theme={theme} setTheme={setTheme} />
+                    <div className='min-h-screen px-[20px] overflow-hidden'>
+                        <Navbar
+                            theme={theme}
+                            setTheme={setTheme}
+                            mobileMenuToggle={mobileMenuToggle}
+                            setMobileMenuToggle={setMobileMenuToggle}
+                        />
                         <Home />
                         <About />
                         {ProjectsData && <Projects ProjectsData={ProjectsData} />}
                         {BlogsData && <Blogs BlogData={BlogsData} />}
                         <Contact />
-                    </>
+                    </div>
                 )}
             </div>
         </BrowserRouter>

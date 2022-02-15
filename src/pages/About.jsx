@@ -4,11 +4,17 @@ import Photo from "../assets/img/My_Photo.jpg";
 
 function About() {
     return (
-        <div id='about' className='text-black-200 flex justify-center items-center min-h-screen'>
+        <div
+            id='about'
+            className='text-black-200 flex justify-center items-center min-h-screen py-[60px]'
+        >
             <div className='flex justify-center items-start flex-col max-w-[1000px] w-full'>
-                <div className='relative text-left w-full text-3xl mb-8'>
-                    <h1 className="block before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[75%] before:right-0 before:top-1/2 before:transform before:-translate-y-1/2">
-                        <span className='text-gold-300'>01.</span> About Me
+                <div className='relative text-left w-full text-2xl mb-10 md:text-3xl md:mb-8'>
+                    <h1 className="flex flex-col md:flex-row before:content-none md:before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[50%] before:right-0 before:top-1/2 before:transform before:-translate-y-1/2 md:before:w-[75%]">
+                        <span className="text-gold-300 relative before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[85%] before:right-0 before:top-1/2 before:transform before:-translate-y-1/2 md:before:w-[75%] md:before:content-none">
+                            01.
+                        </span>
+                        <span> About Me</span>
                     </h1>
                 </div>
                 <div className='about-grid'>
@@ -54,7 +60,7 @@ function About() {
                             </li>
                         </ul>
                     </div>
-                    <div className='myPhoto w-[300px] h-[385px] relative z-10'>
+                    <div className='myPhoto w-[300px] h-[385px] relative z-10 mx-auto'>
                         <img src={Photo} alt='' className='w-full h-full rounded-lg' />
                     </div>
                 </div>

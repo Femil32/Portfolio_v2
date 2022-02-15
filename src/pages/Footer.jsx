@@ -4,7 +4,7 @@ function Footer() {
     return (
         <div
             id='footer'
-            className='absolute text-black-200 flex justify-center items-center py-4 bottom-0 left-1/2 transform -translate-x-1/2'
+            className='absolute text-black-200 flex justify-center items-center py-4 bottom-0 left-1/2 transform -translate-x-1/2 w-full'
         >
             <p>
                 Design & Built by{"  "}

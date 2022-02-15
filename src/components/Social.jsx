@@ -10,7 +10,7 @@ import {
 
 function Social() {
     return (
-        <div className='fixed flex justify-center items-center flex-col left-10 bottom-4 text-black-300'>
+        <div className='social_icons fixed hidden lg:flex justify-center items-center flex-col left-10 bottom-4 text-black-300 opacity-0'>
             <div className='flex flex-col justify-center items-center gap-[16px]'>
                 <a href='https://github.com/Femil32' target='_blank' rel='noopener noreferrer'>
                     <GithubIcon
