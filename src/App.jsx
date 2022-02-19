@@ -37,27 +37,32 @@ function App() {
 
         fetchData();
 
-        window.onbeforeunload = function () {
-            window.setTimeout(function () {
-                window.location = "/";
-            }, 5000);
-            window.onbeforeunload = null;
-            window.scrollTo(0, 0);
+        const scrollCall = e => {
+            var param = document.location.hash.substr(1).toString();
+            const el = document.getElementById(param);
+            if (param && el) {
+                window.scroll({
+                    top: el.offsetTop,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            }
         };
 
         window.onload = () => {
             setTimeout(() => {
                 setLoading(false);
+                scrollCall();
             }, 3000);
         };
     }, []);
 
     return (
         <BrowserRouter>
-            <div className={`${theme ? "light" : "dark"} relative app `}>
-                {loading ? (
-                    <Loader />
-                ) : (
+            {loading ? (
+                <Loader />
+            ) : (
+                <div className={`${theme ? "light" : "dark"} relative app `}>
                     <div className='min-h-screen px-[20px] overflow-hidden'>
                         <Navbar
                             theme={theme}
@@ -71,8 +76,8 @@ function App() {
                         {BlogsData && <Blogs BlogData={BlogsData} />}
                         <Contact />
                     </div>
-                )}
-            </div>
+                </div>
+            )}
         </BrowserRouter>
     );
 }

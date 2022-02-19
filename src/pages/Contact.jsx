@@ -1,7 +1,42 @@
-import React from "react";
+import gsap from "gsap/all";
+import React, { useEffect } from "react";
 import Footer from "./Footer";
 
 function Contact() {
+    useEffect(() => {
+        gsap.fromTo(
+            "#contact .gold-line",
+            {
+                width: 0,
+                opacity: 0,
+            },
+            {
+                scrollTrigger: {
+                    trigger: "#contact .gold-line",
+                    start: "top 75%",
+                },
+                width: "100%",
+                opacity: 1,
+            }
+        );
+        gsap.fromTo(
+            "#contact .contact-info",
+            {
+                opacity: 0,
+                translateY: 20,
+            },
+            {
+                scrollTrigger: {
+                    trigger: "#contact .contact-info",
+                    start: "top 75%",
+                },
+                translateY: 0,
+            }
+        );
+
+        return () => {};
+    }, []);
+
     return (
         <div className='relative'>
             <div
@@ -10,14 +45,15 @@ function Contact() {
             >
                 <div className='flex justify-center items-start flex-col max-w-[1000px] w-full h-full'>
                     <div className='relative text-left w-full text-2xl mb-10 md:text-3xl md:mb-8'>
-                        <h1 className="flex flex-col md:flex-row before:content-none md:before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[50%] before:right-0 before:top-1/2 before:transform before:-translate-y-1/2 md:before:w-[75%]">
-                            <span className="text-gold-300 relative before:content-[''] before:absolute before:border-t-8 before:border-gold-300 before:border-solid before:w-[85%] before:right-0 before:top-1/2 before:transform before:-translate-y-1/2 md:before:w-[75%] md:before:content-none">
-                                04.
-                            </span>
-                            <span> What's next ?</span>
-                        </h1>
+                        <div className='relative flex flex-col md:flex-row justify-between items-center text-left w-full text-2xl mb-10 md:text-3xl md:mb-8'>
+                            <div className='min-w-[150px] flex-1 md:min-w-[300px]'>
+                                <span className='text-gold-300 relative'>04.</span>
+                                <span> What's next ?</span>
+                            </div>
+                            <span className='gold-line border-t-8 border-gold-300 border-solid block w-full'></span>
+                        </div>
                     </div>
-                    <div className='flex justify-center items-center flex-col max-w-[750px] mx-auto mt-auto text-center flex-1'>
+                    <div className='contact-info flex justify-center items-center flex-col max-w-[750px] mx-auto mt-auto text-center flex-1'>
                         <h1 className='text-3xl md:text-4xl mb-4'>Get in touch</h1>
                         <p className='text-sm md:text-base mb-6'>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ut

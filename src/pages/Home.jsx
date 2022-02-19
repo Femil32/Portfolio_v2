@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Social from "../components/Social";
 
+import ScrollGif from "../assets/img/scroll.gif";
+
 function Home() {
     useEffect(() => {
         anime({
@@ -14,6 +16,7 @@ function Home() {
             easing: "easeInOutQuad",
             delay: anime.stagger(100, { start: 1500 }),
             opacity: ["0", "1"],
+            duration: 1000,
         });
         anime({
             targets: [
@@ -69,12 +72,7 @@ function Home() {
             </div>
             <Social />
             <div className='mouse-icon absolute bottom-4 w-full flex justify-center items-center text-3xl text-black-300 md:px-[50px] opacity-0'>
-                <lord-icon
-                    src='https://cdn.lordicon.com/xwjtkymn.json'
-                    trigger='loop'
-                    colors='primary:#ffffff,secondary:#08a88a'
-                    style={{ width: "50px", height: "50px" }}
-                ></lord-icon>
+                <img src={ScrollGif} alt='Scroll' className='w-16' />
             </div>
             <div
                 className='myMail hidden fixed lg:flex justify-center items-center text-[14px] right-10 bottom-4 text-black-300 opacity-0'

@@ -1,16 +1,42 @@
-import React from "react";
+import anime from "animejs";
+import gsap from "gsap/all";
+import React, { useEffect } from "react";
 
 import Temp1 from "../assets/img/temp1.png";
 import { GithubIcon, ShareIcon } from "../helper/AllSvgs";
 
 function Project({ ProjectsData }) {
+    useEffect(() => {
+        let myArray =
+            ProjectsData.length > 0 && Array.from(document.querySelectorAll("#projects .project"));
+        myArray.forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 75%",
+                    onEnter: function () {
+                        anime({
+                            targets: el,
+                            easing: "easeInOutQuad",
+                            delay: anime.stagger(100),
+                            opacity: [0, 1],
+                            duration: 1200,
+                            translateY: [20, 0],
+                        });
+                    },
+                },
+            });
+        });
+
+        return () => {};
+    }, []);
     return (
         <>
             {ProjectsData.length > 0 &&
                 ProjectsData.map((project, index) => (
                     <div
                         key={project.id}
-                        className='flex flex-col-reverse md:grid grid-cols-12 grid-rows-1 relative md:gap-[10px] items-center w-full z-[99] mb-16 md:mb-32 overflow-hidden'
+                        className='project flex flex-col-reverse md:grid grid-cols-12 grid-rows-1 relative md:gap-[10px] items-center w-full z-[99] mb-16 md:mb-32 overflow-hidden opacity-0'
                     >
                         <div
                             className={`${

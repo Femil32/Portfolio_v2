@@ -133,7 +133,7 @@ a {
 }
 
 .project-dis:hover:after {
-    animation: shine 1.5s ease-in-out;
+    animation: shine 1.5s ease-in-out infinite;
     animation-fill-mode: forwards;
     content: "";
     position: absolute;
