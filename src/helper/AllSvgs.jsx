@@ -75,6 +75,7 @@ export const CloseIcon = props => {
         </svg>
     );
 };
+
 export const NameLogo = props => {
     return (
         <svg viewBox='0 0 479 209' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
@@ -95,6 +96,14 @@ export const NameLogo = props => {
                 strokeWidth='10'
                 mask='url(#path-1-outside-1_1_5)'
             />
+        </svg>
+    );
+};
+
+export const FolderLogo = props => {
+    return (
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
+            <path d='M22 7v13h-20v-10h5.262c2.169 0 3.417-.944 5.812-3h8.926zm2-2h-11.668c-2.659 2.292-3.512 3-5.07 3h-7.262v14h24v-17zm-16.738 1c.64 0 1.11-.271 2.389-1.34l-2.651-2.66h-7v4h7.262z' />
         </svg>
     );
 };

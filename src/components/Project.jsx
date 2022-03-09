@@ -14,6 +14,7 @@ function Project({ ProjectsData }) {
                 scrollTrigger: {
                     trigger: el,
                     start: "top 75%",
+                    onLeaveBack: self => self.disable(),
                     onEnter: function () {
                         anime({
                             targets: el,
@@ -56,7 +57,7 @@ function Project({ ProjectsData }) {
                                     {project.name}
                                 </a>
                             </div>
-                            <div className='bg-black-600 p-6 mb-6 project-dis relative overflow-hidden'>
+                            <div className='bg-black-600 p-4 md:p-6 mb-6 project-dis relative overflow-hidden'>
                                 {project.description}
                             </div>
                             <div
@@ -64,7 +65,7 @@ function Project({ ProjectsData }) {
                                     project.id % 2 === 0 ? "items-start" : "items-end"
                                 } flex flex-col relative gap-4`}
                             >
-                                <ul className='flex gap-4 md:gap-6 items-center capitalize text-xs md:text-base'>
+                                <ul className='flex gap-4 md:gap-6 items-center capitalize text-xs md:text-base justify-end flex-wrap'>
                                     {project.tags.map((tag, index) => (
                                         <li key={index}>{tag}</li>
                                     ))}

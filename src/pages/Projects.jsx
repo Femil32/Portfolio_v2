@@ -18,6 +18,7 @@ function Projects({ ProjectsData }) {
                 scrollTrigger: {
                     trigger: "#projects .gold-line",
                     start: "top 75%",
+                    onLeaveBack: self => self.disable(),
                 },
                 width: "100%",
             }
@@ -33,7 +34,7 @@ function Projects({ ProjectsData }) {
         >
             <div className='flex justify-center items-start flex-col max-w-[1000px] w-full'>
                 <div className='relative flex flex-col md:flex-row justify-between items-center text-left w-full text-2xl mb-10 md:text-3xl md:mb-12'>
-                    <div className='min-w-[150px] flex-1 md:min-w-[415px]'>
+                    <div className='min-w-[150px] flex-1 md:min-w-[415px] mb-2 md:mb-0'>
                         <span className='text-gold-300 relative'>02.</span>
                         <span> Some Things I’ve Built</span>
                     </div>

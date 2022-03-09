@@ -4,6 +4,12 @@ import { CloseIcon, MenuIcon, MoonIcon, NameLogo, SunIcon } from "../helper/AllS
 import anime from "animejs/lib/anime.es.js";
 
 function Navbar({ theme, setTheme, mobileMenuToggle, setMobileMenuToggle }) {
+    const mobMenuOpen = value => {
+        setMobileMenuToggle(value);
+        value
+            ? document.body.classList.add("overflow-hidden")
+            : document.body.classList.remove("overflow-hidden");
+    };
     useEffect(() => {
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function () {
@@ -47,7 +53,7 @@ function Navbar({ theme, setTheme, mobileMenuToggle, setMobileMenuToggle }) {
 
     Array.from(document.querySelectorAll("#nav-links li")).forEach(el => {
         el.addEventListener("click", () => {
-            setMobileMenuToggle(false);
+            mobMenuOpen(false);
         });
     });
 
@@ -68,26 +74,49 @@ function Navbar({ theme, setTheme, mobileMenuToggle, setMobileMenuToggle }) {
                 <div
                     id='mob-menu'
                     className='relative logo w-auto h-[50px] justify-center items-center flex sm:hidden opacity-0'
-                    onClick={() => {
-                        setMobileMenuToggle(true);
-                    }}
                 >
-                    <MenuIcon width='30' className='fill-current' />
+                    <div
+                        className='w-[35px] h-[25px] relative'
+                        onClick={() => {
+                            mobMenuOpen(!mobileMenuToggle);
+                        }}
+                    >
+                        <span
+                            className={`bg-black-200 transition-transform duration-300 h-[4px] rounded-[5px] block absolute top-0 ${
+                                mobileMenuToggle
+                                    ? "rotate-45 w-full top-1/2 -translate-y-1/2"
+                                    : "rotate-0 w-1/2 top-0 -translate-y-0"
+                            }`}
+                        ></span>
+                        <span
+                            className={`bg-black-200 transition-transform duration-300 h-[4px] rounded-[5px] block absolute top-1/2 transform -translate-y-1/2 ${
+                                mobileMenuToggle ? "w-0" : "w-full"
+                            }`}
+                        ></span>
+                        <span
+                            className={`bg-black-200 transition-transform duration-300 h-[4px] rounded-[5px] block absolute bottom-0 right-0 ${
+                                mobileMenuToggle
+                                    ? "-rotate-45 w-full bottom-1/2 -translate-y-1/2"
+                                    : "rotate-0 w-1/2 bottom-0 -translate-y-0"
+                            }`}
+                        ></span>
+                    </div>
                 </div>
                 <ul
                     id='nav-links'
-                    className={`fixed w-[60vw] bg-red-50 flex-col top-0 transition-all duration-300  ${
+                    aria-hidden='true'
+                    className={`fixed z-[-1] w-[60vw] bg-black-500 flex-col top-0 transition-all duration-300 bottom-0 h-screen uppercase font-medium flex justify-center items-center gap-[2rem] overflow-hidden p-[10px] ${
                         mobileMenuToggle ? "right-0 nav_blur" : "-right-full"
-                    } bottom-0 z-[999999] h-screen uppercase font-medium flex justify-center items-center gap-[2rem] overflow-hidden p-[10px] sm:relative sm:flex sm:justify-between sm:items-center sm:gap-[2rem] md:gap-[rem] fixed sm:w-auto sm:right-0 sm:bg-transparent sm:h-auto sm:flex-row lg:gap-[5rem] `}
+                    } sm:relative sm:flex sm:justify-between sm:items-center sm:gap-[2rem] md:gap-[rem] sm:w-auto sm:right-0 sm:bg-transparent sm:h-auto sm:flex-row lg:gap-[5rem] `}
                 >
-                    <li
+                    {/* <li
                         className='absolute logo w-[50px] h-[50px] justify-center items-center top-3 right-3 flex sm:hidden opacity-0'
                         onClick={() => {
-                            setMobileMenuToggle(false);
+                            mobMenuOpen(false);
                         }}
                     >
                         <CloseIcon width='30' className='fill-current' />
-                    </li>
+                    </li> */}
                     <li className='hover:text-black-100 w-full text-center opacity-0'>
                         <a href='#about'>About</a>
                     </li>

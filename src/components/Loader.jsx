@@ -10,7 +10,7 @@ function Loader() {
 
         tlAnimeLoad.add({
             targets: ".text .letter",
-            translateY: [50, 0],
+            translateY: [30, 0],
             translatez: 0,
             opacity: [0, 1],
             easing: "easeOutExpo",

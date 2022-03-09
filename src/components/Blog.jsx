@@ -1,6 +1,7 @@
 import anime from "animejs";
 import gsap from "gsap/all";
 import React, { useEffect } from "react";
+import { FolderLogo, ShareIcon } from "../helper/AllSvgs";
 
 function Blog({ BlogData }) {
     useEffect(() => {
@@ -8,6 +9,7 @@ function Blog({ BlogData }) {
             scrollTrigger: {
                 trigger: "#blogs .blog-box",
                 start: "top 50%",
+                onLeaveBack: self => self.disable(),
                 onEnter: function () {
                     anime({
                         targets: "#blogs .blog-box",
@@ -25,7 +27,7 @@ function Blog({ BlogData }) {
     return (
         <>
             <div className='blogs-grid flex justify-center items-center flex-col'>
-                <div className='relative flex justify-center items-center gap-[50px] w-full flex-wrap mb-10'>
+                <div className='relative flex justify-center items-center gap-[35px] md:gap-[50px] w-full flex-wrap mb-10'>
                     {BlogData.length > 0 &&
                         BlogData.map((blog, index) => (
                             <a
@@ -33,25 +35,29 @@ function Blog({ BlogData }) {
                                 href={blog.links.preview}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='blog-box opacity-0 relative text-black-300 flex flex-row justify-center items-center w-[300px] h-[300px] overflow-hidden group cursor-pointer  transition-transform duration-300 blogBox'
+                                className='blog-box opacity-0 relative text-black-300 flex flex-row justify-center items-center w-[90vw] h-[300px]  md:w-[300px] md:h-[300px] overflow-hidden group cursor-pointer transition-transform duration-300 blogBox hover:-translate-y-2'
                             >
-                                <div className='overflow-hidden p-4 absolute top-0 left-0 flex flex-col justify-start items-start bg-black-400 w-full h-full transition-transform duration-300 transform flex-grow-3 group-hover:-translate-x-full'>
-                                    <h1 className='text-xl font-medium '>{blog.title}</h1>
-                                    <div className='mt-auto border-t-2 pt-2 w-full'>
-                                        <ul className='flex gap-2 mb-2'>
+                                <div className='overflow-hidden p-4 absolute top-0 left-0 flex flex-col justify-start items-start bg-black-400 w-full h-full transition-transform duration-300 transform flex-grow-3 '>
+                                    <div className='mb-2 text-black-300 flex justify-between items-center w-full'>
+                                        <FolderLogo
+                                            width='24'
+                                            height='24'
+                                            className='fill-current'
+                                        />
+                                    </div>
+                                    <h1 className='text-xl font-bold tracking-wide group-hover:text-white'>
+                                        {blog.title}
+                                    </h1>
+                                    <div className='mt-auto border-t-2 pt-2 w-full text-sm'>
+                                        <ul className='flex gap-4 mb-2'>
                                             {blog.tags.map((tag, index) => (
-                                                <li key={index}>#{tag}</li>
+                                                <li className=' capitalize' key={index}>
+                                                    {tag}
+                                                </li>
                                             ))}
                                         </ul>
-                                        <p>{blog.date}</p>
+                                        <p className='text-xs'>{blog.date}</p>
                                     </div>
-                                </div>
-                                <div className='overflow-hidden absolute top-0 left-full flex justify-center items-center bg-green-100 w-full h-full transition-transform duration-300 transform flex-grow-3 group-hover:-translate-x-full'>
-                                    <img
-                                        src={blog.links.img}
-                                        alt={blog.title}
-                                        className='w-full h-full object-cover'
-                                    />
                                 </div>
                             </a>
                         ))}

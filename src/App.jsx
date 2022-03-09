@@ -59,25 +59,29 @@ function App() {
 
     return (
         <BrowserRouter>
-            {loading ? (
+            {/* {loading ? (
                 <Loader />
             ) : (
-                <div className={`${theme ? "light" : "dark"} relative app `}>
-                    <div className='min-h-screen px-[20px] overflow-hidden'>
-                        <Navbar
-                            theme={theme}
-                            setTheme={setTheme}
-                            mobileMenuToggle={mobileMenuToggle}
-                            setMobileMenuToggle={setMobileMenuToggle}
-                        />
-                        <Home />
-                        <About />
-                        {ProjectsData && <Projects ProjectsData={ProjectsData} />}
-                        {BlogsData && <Blogs BlogData={BlogsData} />}
-                        <Contact />
-                    </div>
+            )} */}
+            <div
+                className={`${
+                    theme ? "light" : "dark"
+                } relative app min-h-screen w-screen overflow-hidden`}
+            >
+                <div className='w-full h-full px-[16px]'>
+                    <Navbar
+                        theme={theme}
+                        setTheme={setTheme}
+                        mobileMenuToggle={mobileMenuToggle}
+                        setMobileMenuToggle={setMobileMenuToggle}
+                    />
+                    <Home />
+                    <About />
+                    {ProjectsData && <Projects ProjectsData={ProjectsData} />}
+                    {BlogsData && <Blogs BlogData={BlogsData} />}
+                    <Contact />
                 </div>
-            )}
+            </div>
         </BrowserRouter>
     );
 }

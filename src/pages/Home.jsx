@@ -55,15 +55,15 @@ function Home() {
             className='home relative min-h-screen flex justify-center items-center flex-col py-[60px] md:pt-[55px] md:px-[50px]'
         >
             <div className='main_intro uppercase'>
-                <div className='text-black-300 opacity-0 relative text-[25px] md:text-[50px] flex justify-center items-center'>
-                    <span className='min-w-[100px] flex-1 md:min-w-[165px]'>Hi i'm</span>
+                <div className='text-black-300 opacity-0 relative text-[24px] md:text-[50px] flex justify-center items-center'>
+                    <span className='min-w-[80px] flex-1 md:min-w-[165px]'>Hi i'm</span>
                     <span className='gold-line border-t-8 border-gold-300 border-solid block w-full'></span>
                 </div>
-                <div className='text-black-100 opacity-0 text-[100px] font-bold tracking-widest leading-[100px] ml-[-8px] mr-[-20px] md:text-[200px] md:font-bold md:tracking-widest md:leading-[180px] md:ml-[-8px] md:mr-[-20px]'>
+                <div className='text-black-100 dark:text-red-500 opacity-0 text-[90px] font-bold tracking-widest leading-[100px] ml-[-8px] mr-[-20px] md:text-[200px] md:font-bold md:tracking-widest md:leading-[180px] md:ml-[-8px] md:mr-[-20px]'>
                     Femil
                 </div>
-                <div className='text-gold-300 opacity-0 flex flex-row-reverse justify-center items-center relative text-[20px] md:text-[30px] md:mt-6'>
-                    <div className='min-w-[150px] flex-1 text-right md:min-w-[200px]'>
+                <div className='text-gold-300 opacity-0 flex flex-row-reverse justify-center items-center relative text-[16px] md:text-[30px] md:mt-6'>
+                    <div className='min-w-[110px] flex-1 text-right md:min-w-[200px]'>
                         <span className='block leading-[25px] md:leading-[35px]'>A Frontend</span>
                         <span className='block leading-[25px] md:leading-[35px]'>Developer</span>
                     </div>
