@@ -12,44 +12,46 @@ function Blog({ BlogData }) {
                 onLeaveBack: self => self.disable(),
                 onEnter: function () {
                     anime({
-                        targets: "#blogs .blog-box",
-                        // translateY: ["20", "0"],
-                        delay: anime.stagger(200), // increase delay by 100ms for each elements.
+                        targets: ".blog-box",
+                        translateY: ["50", "0"],
                         opacity: [0, 1],
+                        easing: "spring(1, 80, 10, 0)",
+                        delay: anime.stagger(100),
                     });
                 },
             },
         });
 
-        return () => {};
+        return () => { };
     }, []);
 
     return (
         <>
-            <div className='blogs-grid flex justify-center items-center flex-col'>
-                <div className='relative flex justify-center items-center gap-[35px] md:gap-[50px] w-full flex-wrap mb-10'>
+            <div className='blogs-grid flex w-full flex-col items-center justify-center'>
+                <div className='relative mb-10 flex w-full flex-wrap items-center justify-center gap-[25px]'>
                     {BlogData.length > 0 &&
                         BlogData.map((blog, index) => (
                             <a
                                 key={index}
+                                id={`blog-${index}`}
                                 href={blog.links.preview}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='blog-box opacity-0 relative text-black-300 flex flex-row justify-center items-center w-[90vw] h-[300px]  md:w-[300px] md:h-[300px] overflow-hidden group cursor-pointer transition-transform duration-300 blogBox hover:-translate-y-2'
+                                className='blog-box blogBox transition-all group relative flex h-[300px] w-full origin-bottom cursor-pointer flex-row items-center  justify-center overflow-hidden text-black-300 opacity-0 hover:-translate-y-2 dark:text-white-300 sm:h-[300px] sm:w-[300px]'
                             >
-                                <div className='overflow-hidden p-4 absolute top-0 left-0 flex flex-col justify-start items-start bg-black-400 w-full h-full transition-transform duration-300 transform flex-grow-3 '>
-                                    <div className='mb-2 text-black-300 flex justify-between items-center w-full'>
+                                <div className=' flex-grow-3 absolute top-0 left-0 flex h-full w-full transform flex-col items-start justify-start overflow-hidden bg-black-400 p-4 transition-transform duration-300 '>
+                                    <div className='mb-2 flex w-full items-center justify-between text-black-300 dark:text-white-300'>
                                         <FolderLogo
                                             width='24'
                                             height='24'
                                             className='fill-current'
                                         />
                                     </div>
-                                    <h1 className='text-xl font-bold tracking-wide group-hover:text-white'>
+                                    <h1 className='text-xl font-bold tracking-wide text-white md:text-black-300 md:group-hover:text-white'>
                                         {blog.title}
                                     </h1>
-                                    <div className='mt-auto border-t-2 pt-2 w-full text-sm'>
-                                        <ul className='flex gap-4 mb-2'>
+                                    <div className='mt-auto w-full border-t-2 pt-2 text-sm text-white md:text-black-300 md:group-hover:text-white'>
+                                        <ul className='mb-2 flex gap-4'>
                                             {blog.tags.map((tag, index) => (
                                                 <li className=' capitalize' key={index}>
                                                     {tag}
@@ -64,7 +66,7 @@ function Blog({ BlogData }) {
                 </div>
                 <a
                     href='https://dev.to/femil'
-                    className='px-6 py-2 border-2 border-gold-300 hover:bg-gold-300 hover:text-black-100'
+                    className='btn'
                     target='_blank'
                     rel='noopener noreferrer'
                 >

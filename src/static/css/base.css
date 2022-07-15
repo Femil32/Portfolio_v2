@@ -1,0 +1,3 @@
+.btn{
+    @apply border-2 cursor-pointer border-dk-gold-300 px-6 py-2 md:hover:bg-dk-gold-300 md:hover:text-white bg-dk-gold-300 md:bg-transparent text-white md:text-black-300
+}

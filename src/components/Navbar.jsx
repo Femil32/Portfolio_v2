@@ -48,7 +48,7 @@ function Navbar({ theme, setTheme, mobileMenuToggle, setMobileMenuToggle }) {
             opacity: ["0", "1"],
         });
 
-        return () => {};
+        return () => { };
     }, []);
 
     Array.from(document.querySelectorAll("#nav-links li")).forEach(el => {
@@ -61,53 +61,49 @@ function Navbar({ theme, setTheme, mobileMenuToggle, setMobileMenuToggle }) {
         <>
             <nav
                 id='navbar'
-                className='fixed flex justify-between items-center w-screen top-0 left-0 right-0 text-black-200 transition-all duration-[0.25s] z-[999] lg:h-[80px] lg:px-[50px] h-auto px-[20px] py-[20px]'
+                className='fixed top-0 left-0 right-0 z-[999] flex h-auto w-screen items-center justify-between px-[20px] py-[20px] text-black-200 transition-all duration-[0.25s] dark:text-white-200 lg:h-[80px] lg:px-[50px]'
             >
                 <div
                     id='logo'
-                    className='relative logo w-[50px] h-[50px] flex justify-center items-center text-gold-300 opacity-0'
+                    className='logo relative flex h-[40px] w-[40px] items-center justify-center overflow-hidden text-dk-gold-300 opacity-0 dark:text-lg-blue-300 sm:h-[50px] sm:w-[50px]'
                 >
-                    <a href='/#home' className='w-full h-full '>
-                        <NameLogo width='100' />
+                    <a href='/#home' className='h-full w-full text-black-300 dark:text-white-300'>
+                        <NameLogo className='w-[80px]' />
                     </a>
                 </div>
                 <div
                     id='mob-menu'
-                    className='relative logo w-auto h-[50px] justify-center items-center flex sm:hidden opacity-0'
+                    className='logo relative flex h-[50px] w-auto items-center justify-center opacity-0 sm:hidden'
                 >
                     <div
-                        className='w-[35px] h-[25px] relative'
+                        className='relative h-[25px] w-[35px]'
                         onClick={() => {
                             mobMenuOpen(!mobileMenuToggle);
                         }}
                     >
                         <span
-                            className={`bg-black-200 transition-transform duration-300 h-[4px] rounded-[5px] block absolute top-0 ${
-                                mobileMenuToggle
-                                    ? "rotate-45 w-full top-1/2 -translate-y-1/2"
-                                    : "rotate-0 w-1/2 top-0 -translate-y-0"
-                            }`}
+                            className={`absolute top-0 block h-[4px] rounded-[5px] bg-black-200 transition-transform duration-300 ${mobileMenuToggle
+                                ? "top-1/2 w-full -translate-y-1/2 rotate-45"
+                                : "top-0 w-1/2 -translate-y-0 rotate-0"
+                                }`}
                         ></span>
                         <span
-                            className={`bg-black-200 transition-transform duration-300 h-[4px] rounded-[5px] block absolute top-1/2 transform -translate-y-1/2 ${
-                                mobileMenuToggle ? "w-0" : "w-full"
-                            }`}
+                            className={`absolute top-1/2 block h-[4px] -translate-y-1/2 transform rounded-[5px] bg-black-200 transition-transform duration-300 ${mobileMenuToggle ? "w-0" : "w-full"
+                                }`}
                         ></span>
                         <span
-                            className={`bg-black-200 transition-transform duration-300 h-[4px] rounded-[5px] block absolute bottom-0 right-0 ${
-                                mobileMenuToggle
-                                    ? "-rotate-45 w-full bottom-1/2 -translate-y-1/2"
-                                    : "rotate-0 w-1/2 bottom-0 -translate-y-0"
-                            }`}
+                            className={`absolute bottom-0 right-0 block h-[4px] rounded-[5px] bg-black-200 transition-transform duration-300 ${mobileMenuToggle
+                                ? "bottom-1/2 w-full -translate-y-1/2 -rotate-45"
+                                : "bottom-0 w-1/2 -translate-y-0 rotate-0"
+                                }`}
                         ></span>
                     </div>
                 </div>
                 <ul
                     id='nav-links'
                     aria-hidden='true'
-                    className={`fixed z-[-1] w-[60vw] bg-black-500 flex-col top-0 transition-all duration-300 bottom-0 h-screen uppercase font-medium flex justify-center items-center gap-[2rem] overflow-hidden p-[10px] ${
-                        mobileMenuToggle ? "right-0 nav_blur" : "-right-full"
-                    } sm:relative sm:flex sm:justify-between sm:items-center sm:gap-[2rem] md:gap-[rem] sm:w-auto sm:right-0 sm:bg-transparent sm:h-auto sm:flex-row lg:gap-[5rem] `}
+                    className={`fixed top-0 bottom-0 z-[-1] flex h-screen w-[60vw] flex-col items-center justify-center gap-[2rem] overflow-hidden bg-black-500 p-[10px] font-medium uppercase transition-all duration-300 md:overflow-visible ${mobileMenuToggle ? "nav_blur right-0" : "-right-full"
+                        } sm:relative sm:right-0 sm:flex sm:h-auto sm:w-auto sm:flex-row sm:items-center sm:justify-between sm:gap-[2rem] sm:bg-transparent md:gap-[rem] lg:gap-[5rem] `}
                 >
                     {/* <li
                         className='absolute logo w-[50px] h-[50px] justify-center items-center top-3 right-3 flex sm:hidden opacity-0'
@@ -117,26 +113,26 @@ function Navbar({ theme, setTheme, mobileMenuToggle, setMobileMenuToggle }) {
                     >
                         <CloseIcon width='30' className='fill-current' />
                     </li> */}
-                    <li className='hover:text-black-100 w-full text-center opacity-0'>
+                    <li className='w-full text-center opacity-0 hover:text-black-100 dark:text-white-100 '>
                         <a href='#about'>About</a>
                     </li>
-                    <li className='hover:text-black-100 w-full text-center opacity-0'>
+                    <li className='w-full text-center opacity-0 hover:text-black-100 dark:text-white-100'>
                         <a href='#projects'>Projects</a>
                     </li>
-                    <li className='hover:text-black-100 w-full text-center opacity-0'>
-                        <a href='#blogs'>blogs</a>
+                    <li className='w-full text-center opacity-0 hover:text-black-100 dark:text-white-100'>
+                        <a href='#blogs'>Blogs</a>
                     </li>
-                    <li className='hover:text-black-100 w-full text-center opacity-0'>
+                    <li className='w-full text-center opacity-0 hover:text-black-100 dark:text-white-100'>
                         <a href='#contact'>Contact</a>
                     </li>
-                    <li className='cursor-pointer w-full text-center mx-auto opacity-0'>
+                    {/* <li className='mx-auto w-full cursor-pointer text-center opacity-0'>
                         <label
                             htmlFor='checkbox'
-                            className='w-[40px] h-[20px] bg-[#111] mx-auto flex rounded-[50px] items-center justify-between p-[5px] relative transform scale-150 cursor-pointer'
+                            className='relative mx-auto flex h-[20px] w-[40px] scale-150 transform cursor-pointer items-center justify-between rounded-[50px] bg-[#111] p-[5px]'
                         >
                             <input
                                 type='checkbox'
-                                className='opacity-0 peer absolute cursor-pointer'
+                                className='peer absolute cursor-pointer opacity-0'
                                 id='checkbox'
                                 defaultChecked='true'
                                 onChange={e => {
@@ -147,16 +143,31 @@ function Navbar({ theme, setTheme, mobileMenuToggle, setMobileMenuToggle }) {
                             <SunIcon
                                 width='12px'
                                 height='12px'
-                                className='fill-[#FFFF00] cursor-pointer'
+                                className='cursor-pointer fill-[#FFFF00]'
                             />
 
                             <MoonIcon
                                 width='12px'
                                 height='12px'
-                                className='fill-[#FFC0CB] cursor-pointer'
+                                className='cursor-pointer fill-[#FFC0CB]'
                             />
 
-                            <div className='w-4 h-4 bg-white absolute top-[50%] left-[2px] rounded-[50%] transform -translate-y-1/2 transition-transform duration-[0.25s] peer-checked:translate-x-[20px] cursor-pointer'></div>
+                            <div className='absolute top-[50%] left-[2px] h-4 w-4 -translate-y-1/2 transform cursor-pointer rounded-[50%] bg-white transition-transform duration-[0.25s] peer-checked:translate-x-[20px]'></div>
+                        </label>
+                    </li> */}
+                    <li className='mx-auto w-full cursor-pointer text-center opacity-0'>
+                        <label
+                            htmlFor='checkbox'
+                            className='btn'
+                        >
+                            <a
+                                href='https://drive.google.com/file/d/1V0EBNMuFrXzSugYpdr2rEZfGpH43nWkv/view?usp=sharing'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className=''
+                            >
+                                Resume
+                            </a>
                         </label>
                     </li>
                 </ul>

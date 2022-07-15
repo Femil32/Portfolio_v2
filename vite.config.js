@@ -12,7 +12,7 @@ export default defineConfig(init => {
             "process.env": config[init.mode],
         },
         server: {
-            port: 7500,
+            port: 8000,
         },
     };
 });

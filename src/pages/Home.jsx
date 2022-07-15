@@ -52,34 +52,38 @@ function Home() {
     return (
         <main
             id='home'
-            className='home relative min-h-screen flex justify-center items-center flex-col py-[60px] md:pt-[55px] md:px-[50px]'
+            className='home relative flex min-h-screen flex-col items-center justify-center pt-[65px] pb-[40px] sm:pt-[65px] md:px-[50px] md:pt-[55px]'
         >
             <div className='main_intro uppercase'>
-                <div className='text-black-300 opacity-0 relative text-[24px] md:text-[50px] flex justify-center items-center'>
-                    <span className='min-w-[80px] flex-1 md:min-w-[165px]'>Hi i'm</span>
-                    <span className='gold-line border-t-8 border-gold-300 border-solid block w-full'></span>
+                <div className='relative flex items-center justify-center text-[24px] text-black-300 opacity-0 dark:text-white-300 sm:text-[30px] md:text-[50px]'>
+                    <span className='min-w-[80px] flex-1 sm:min-w-[105px] md:min-w-[165px]'>
+                        Hi i'm
+                    </span>
+                    <span className='gold-line block w-full border-t-8 border-solid border-dk-gold-300 dark:border-lg-blue-300'></span>
                 </div>
-                <div className='text-black-100 dark:text-red-500 opacity-0 text-[90px] font-bold tracking-widest leading-[100px] ml-[-8px] mr-[-20px] md:text-[200px] md:font-bold md:tracking-widest md:leading-[180px] md:ml-[-8px] md:mr-[-20px]'>
-                    Femil
+                <div className='link ml-[-8px] mr-[-20px] text-[90px] font-bold leading-[100px] tracking-widest text-transparent opacity-0 dark:text-white-100 sm:text-[130px] md:ml-[-8px] md:mr-[-20px] md:text-[200px] md:font-bold md:leading-[180px] md:tracking-widest'>
+                        Femil
                 </div>
-                <div className='text-gold-300 opacity-0 flex flex-row-reverse justify-center items-center relative text-[16px] md:text-[30px] md:mt-6'>
-                    <div className='min-w-[110px] flex-1 text-right md:min-w-[200px]'>
-                        <span className='block leading-[25px] md:leading-[35px]'>A Frontend</span>
+                <div className='relative flex flex-row-reverse items-center justify-center text-[16px] text-dk-gold-300 opacity-0 dark:text-lg-blue-300 sm:text-[20px] md:mt-6 md:text-[30px]'>
+                    <div className='min-w-[110px] flex-1 text-right sm:min-w-[150px] md:min-w-[200px]'>
+                        <span className='block leading-[25px] md:leading-[35px]'>A Full Stack</span>
                         <span className='block leading-[25px] md:leading-[35px]'>Developer</span>
                     </div>
-                    <span className='gold-line border-t-8 border-gold-300 border-solid block w-full'></span>
+                    <span className='gold-line block w-full border-t-8 border-solid border-dk-gold-300 dark:border-lg-blue-300'></span>
                 </div>
             </div>
-            <Social />
-            <div className='mouse-icon absolute bottom-4 w-full flex justify-center items-center text-3xl text-black-300 md:px-[50px] opacity-0'>
+            <div className='hidden lg:block'>
+                <Social />
+            </div>
+            <div className='mouse-icon absolute bottom-4 flex w-full items-center justify-center text-3xl text-black-300 opacity-0 dark:text-white-300 md:px-[50px]'>
                 <img src={ScrollGif} alt='Scroll' className='w-16' />
             </div>
             <div
-                className='myMail hidden fixed lg:flex justify-center items-center text-[14px] right-10 bottom-4 text-black-300 opacity-0'
+                className='myMail fixed right-10 bottom-4 hidden items-center justify-center text-[14px] text-black-300 opacity-0 dark:text-white-300 lg:flex'
                 style={{ writingMode: "tb-rl" }}
             >
                 <a href='mailto:femilsavaliya555@gmail.com'>femilsavaliya555@gmail.com</a>
-                <span className='h-16 w-1 bg-black-300 mt-4'></span>
+                <span className='mt-4 h-16 w-1 bg-black-300'></span>
             </div>
         </main>
     );

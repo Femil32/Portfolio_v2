@@ -10,13 +10,13 @@ import {
 
 function Social() {
     return (
-        <div className='social_icons fixed hidden lg:flex justify-center items-center flex-col left-10 bottom-4 text-black-300 opacity-0'>
-            <div className='flex flex-col justify-center items-center gap-[16px]'>
+        <div className='social_icons left-10 bottom-4 items-center justify-center text-black-300 opacity-0 dark:text-white-300 lg:fixed lg:flex lg:flex-col'>
+            <div className='flex items-center justify-center gap-[16px] lg:flex-col'>
                 <a href='https://github.com/Femil32' target='_blank' rel='noopener noreferrer'>
                     <GithubIcon
                         width='20'
                         height='20'
-                        className='fill-current transform transition-transform hover:fill-[#C6C6C6] hover:-translate-y-1'
+                        className='transform fill-current transition-transform hover:-translate-y-1 hover:fill-[#C6C6C6]'
                     />
                 </a>
                 <a
@@ -27,7 +27,7 @@ function Social() {
                     <InstagramIcon
                         width='20'
                         height='20'
-                        className='fill-current transform transition-transform hover:fill-[#C6C6C6] hover:-translate-y-1'
+                        className='transform fill-current transition-transform hover:-translate-y-1 hover:fill-[#C6C6C6]'
                     />
                 </a>
                 <a
@@ -38,7 +38,7 @@ function Social() {
                     <TwitterIcon
                         width='20'
                         height='20'
-                        className='fill-current transform transition-transform hover:fill-[#C6C6C6] hover:-translate-y-1'
+                        className='transform fill-current transition-transform hover:-translate-y-1 hover:fill-[#C6C6C6]'
                     />
                 </a>
                 <a
@@ -49,19 +49,19 @@ function Social() {
                     <LinkedInIcon
                         width='20'
                         height='20'
-                        className='fill-current transform transition-transform hover:fill-[#C6C6C6] hover:-translate-y-1'
+                        className='transform fill-current transition-transform hover:-translate-y-1 hover:fill-[#C6C6C6]'
                     />
                 </a>
                 <a href='https://codepen.io/Femil_32' target='_blank' rel='noopener noreferrer'>
                     <CodepenIcon
                         width='20'
                         height='20'
-                        className='fill-current transform transition-transform hover:fill-[#C6C6C6] hover:-translate-y-1'
+                        className='transform fill-current transition-transform hover:-translate-y-1 hover:fill-[#C6C6C6]'
                     />
                 </a>
             </div>
             {/* <span className='h-24 w-1 bg-black-300 mt-6'></span> */}
-            <span className='h-16 w-1 bg-black-300 mt-4'></span>
+            <span className='mt-4 h-16 w-1 bg-black-300'></span>
         </div>
     );
 }

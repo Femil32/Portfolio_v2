@@ -1,6 +1,7 @@
 import gsap from "gsap/all";
 import React, { useEffect } from "react";
 import Blog from "../components/Blog";
+import { PageLable } from "../components/micro";
 
 import { BlogData } from "../data/BlogData";
 
@@ -28,18 +29,13 @@ function Blogs() {
     return (
         <div
             id='blogs'
-            className='text-black-200 flex justify-center items-center min-h-screen py-[60px]'
+            className='flex min-h-screen items-center justify-center pt-[65px] pb-[40px] pb-[40px] text-black-200 dark:text-white-200 sm:pt-[65px]'
         >
-            <div className='flex justify-center items-start flex-col max-w-[1000px] w-full'>
-                <div className='relative text-left w-full text-2xl mb-10 md:text-3xl md:mb-8'>
-                    <div className='relative flex flex-col md:flex-row justify-between items-center text-left w-full text-2xl mb-10 md:text-3xl md:mb-8'>
-                        <div className='min-w-[150px] flex-1 md:min-w-[320px] mb-2 md:mb-0'>
-                            <span className='text-gold-300 relative'>03.</span>
-                            <span> I love To Write !!</span>
-                        </div>
-                        <span className='gold-line border-t-8 border-gold-300 border-solid block w-full'></span>
-                    </div>
-                </div>
+            <div className='flex w-full max-w-[1000px] flex-col items-start justify-center'>
+                <PageLable
+                    pageNo={`03`}
+                    title={`I love To Write !!`}
+                />
                 <Blog BlogData={BlogData} />
             </div>
         </div>

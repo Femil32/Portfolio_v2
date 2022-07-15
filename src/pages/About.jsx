@@ -3,7 +3,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import React, { useEffect } from "react";
 import scrollreveal from "scrollreveal";
 
-import Photo from "../assets/img/My_Photo.jpg";
+import Photo from "../assets/img/myphoto.jpg";
+import { PageLable } from "../components/micro";
 
 gsap.registerPlugin(ScrollTrigger);
 function About() {
@@ -48,25 +49,23 @@ function About() {
     return (
         <div
             id='about'
-            className='text-black-200 flex justify-center items-center min-h-screen py-[60px]'
+            className='flex min-h-screen items-center justify-center pt-[65px] pb-[40px] text-black-200 dark:text-white-200 sm:pt-[65px]'
         >
-            <div className='flex justify-center items-start flex-col max-w-[1000px] w-full'>
-                <div className='about_title relative flex flex-col md:flex-row justify-between items-center text-left w-full text-2xl mb-10 md:text-3xl md:mb-12'>
-                    <div className='min-w-[150px] flex-1 md:min-w-[230px] mb-2 md:mb-0'>
-                        <span className='text-gold-300 relative'>01.</span>
-                        <span> About Me</span>
-                    </div>
-                    <span className='gold-line border-t-8 border-gold-300 border-solid block w-full'></span>
-                </div>
-                <div className='about-grid'>
-                    <div className='content max-w-[550px] w-full'>
-                        <p className='mb-6'>
+            <div className='flex w-full max-w-[1000px] flex-col items-start justify-center'>
+                <PageLable
+                    className={'about_title'}
+                    pageNo={'01'}
+                    title={'About Me'}
+                />
+                <div className='about-grid w-full'>
+                    <div className='content w-full max-w-[550px] text-sm sm:text-base mdMax:max-w-full'>
+                        <p className='mb-6 leading-6'>
                             Hello! My name is Femil and I'm Student. I enjoy creating things that
                             live on the internet. My interest in web development started back in
                             2019 when I showed my senior friend to build a website — after creating
                             some projects that taught me a lot about HTML & CSS!
                         </p>
-                        <p className='mb-6'>
+                        <p className='mb-6 leading-6'>
                             Fast-forward to today, and I’ve had the privilege of working at a <br />
                             <a
                                 href='https://www.micrasolution.com/'
@@ -88,7 +87,7 @@ function About() {
                             . My main focus these days is to be a master in Full-Stack development &
                             learn UI/UX design.
                         </p>
-                        <p className='mb-6'>
+                        <p className='mb-6 leading-6'>
                             I love to share my knowledge and discuss Tech. stuff with my friends and
                             colleagues, so I write blogs at{" "}
                             <a
@@ -104,28 +103,28 @@ function About() {
                             Here are a few technologies I’ve been working with recently:
                         </p>
                         <ul className='about-skill-grid'>
-                            <li className='relative pl-6 golden-line before:w-2 before:left-0 '>
+                            <li className='golden-line relative pl-6 before:left-0 before:w-2 '>
                                 JavaScript (ES6+)
                             </li>
-                            <li className='relative pl-6 golden-line before:w-2 before:left-0 '>
+                            <li className='golden-line relative pl-6 before:left-0 before:w-2 '>
                                 TypeScript
                             </li>
-                            <li className='relative pl-6 golden-line before:w-2 before:left-0 '>
+                            <li className='golden-line relative pl-6 before:left-0 before:w-2 '>
                                 React
                             </li>
-                            <li className='relative pl-6 golden-line before:w-2 before:left-0 '>
+                            <li className='golden-line relative pl-6 before:left-0 before:w-2 '>
                                 Eleventy
                             </li>
-                            <li className='relative pl-6 golden-line before:w-2 before:left-0 '>
+                            <li className='golden-line relative pl-6 before:left-0 before:w-2 '>
                                 Node.js
                             </li>
-                            <li className='relative pl-6 golden-line before:w-2 before:left-0  '>
+                            <li className='golden-line relative pl-6 before:left-0 before:w-2  '>
                                 WordPress
                             </li>
                         </ul>
                     </div>
-                    <div className='myPhoto w-[65vw] md:w-[300px] md:h-[385px] relative z-10 mx-auto'>
-                        <img src={Photo} alt='' className='w-full h-full rounded-lg' />
+                    <div className='myPhoto relative z-10 mx-auto w-[220px] md:h-[420px] md:w-[320px]'>
+                        <img src={Photo} alt='' className='h-full w-full rounded-lg' />
                     </div>
                 </div>
             </div>

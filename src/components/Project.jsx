@@ -18,7 +18,7 @@ function Project({ ProjectsData }) {
                     onEnter: function () {
                         anime({
                             targets: el,
-                            easing: "easeInOutQuad",
+                            easing: "spring(1, 80, 10, 0)",
                             delay: anime.stagger(100),
                             opacity: [0, 1],
                             duration: 1200,
@@ -29,7 +29,7 @@ function Project({ ProjectsData }) {
             });
         });
 
-        return () => {};
+        return () => { };
     }, []);
     return (
         <>
@@ -37,40 +37,38 @@ function Project({ ProjectsData }) {
                 ProjectsData.map((project, index) => (
                     <div
                         key={project.id}
-                        className='project flex flex-col-reverse md:grid grid-cols-12 grid-rows-1 relative md:gap-[10px] items-center w-full z-[99] mb-16 md:mb-32 overflow-hidden opacity-0'
+                        className='project relative z-[99] mb-16 flex w-full grid-cols-12 grid-rows-1 flex-col-reverse items-center overflow-hidden opacity-0 md:mb-32 md:grid md:gap-[10px]'
                     >
                         <div
-                            className={`${
-                                project.id % 2 === 0
+                            className={`${project.id % 2 === 0
                                     ? "project-content-odd"
                                     : "project-content-even"
-                            } w-full h-auto z-[99] mt-6 md:mt-0`}
+                                } z-[99] mt-6 h-auto w-full text-sm md:mt-0 xs:text-base`}
                         >
                             <div className='mb-2 md:mb-4'>
                                 <p className='text-xs md:mb-2'>Featured Project</p>
                                 <a
-                                    href='https://femil-tesla-clone-323232.web.app/'
+                                    href={project.links.preview}
                                     target='_blank'
                                     rel='noopener noreferrer'
-                                    className='text-xl md:text-3xl capitalize tracking-wide'
+                                    className='text-xl capitalize tracking-wide md:text-3xl'
                                 >
                                     {project.name}
                                 </a>
                             </div>
-                            <div className='bg-black-600 p-4 md:p-6 mb-6 project-dis relative overflow-hidden'>
+                            <div className='project-dis relative mb-6 overflow-hidden bg-black-600 p-2 sm:p-4 xs:p-6 leading-6'>
                                 {project.description}
                             </div>
                             <div
-                                className={`${
-                                    project.id % 2 === 0 ? "items-start" : "items-end"
-                                } flex flex-col relative gap-4`}
+                                className={`${project.id % 2 === 0 ? "items-start" : "items-end"
+                                    } relative flex flex-col gap-4`}
                             >
-                                <ul className='flex gap-4 md:gap-6 items-center capitalize text-xs md:text-base justify-end flex-wrap'>
+                                <ul className='flex flex-wrap items-center justify-end gap-4 text-xs capitalize md:gap-6 md:text-base'>
                                     {project.tags.map((tag, index) => (
                                         <li key={index}>{tag}</li>
                                     ))}
                                 </ul>
-                                <div className='flex items-center text-black-300 gap-4'>
+                                <div className='flex items-center gap-4 text-black-300 dark:text-white-300'>
                                     <a
                                         href={project.links.github}
                                         target='_blank'
@@ -80,7 +78,7 @@ function Project({ ProjectsData }) {
                                         <GithubIcon
                                             width='22px'
                                             height='22px'
-                                            className='fill-current transform transition-transform hover:fill-[#C6C6C6]'
+                                            className='transform fill-current transition-transform hover:fill-[#C6C6C6]'
                                         />
                                     </a>
                                     <a
@@ -92,16 +90,15 @@ function Project({ ProjectsData }) {
                                         <ShareIcon
                                             width='22px'
                                             height='22px'
-                                            className='fill-current transform transition-transform hover:fill-[#C6C6C6]'
+                                            className='transform fill-current transition-transform hover:fill-[#C6C6C6]'
                                         />
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div
-                            className={`${
-                                project.id % 2 === 0 ? "project-img-even" : "project-img-odd"
-                            }   w-full md:w-[580px] h-auto relative`}
+                            className={`${project.id % 2 === 0 ? "project-img-even" : "project-img-odd"
+                                }   relative h-auto w-full md:w-[580px]`}
                         >
                             <a
                                 href={project.links.preview}
@@ -111,7 +108,7 @@ function Project({ ProjectsData }) {
                                 <img
                                     src={project.links.img}
                                     alt='temp'
-                                    className='w-full h-full object-contain'
+                                    className='h-full w-full object-contain'
                                 />
                             </a>
                         </div>
